@@ -107,12 +107,13 @@ The specific files used are:
 ├── models/ <br>
 │ └── (This folder will contain 5 .pkl files after the pipeline runs) <br>
 │ <br>
-├── Proyek_Recommender_System_v2.ipynb # Main notebook for ETL & training pipeline <br>
+├── hybrid_recommender.ipynb # Main notebook for ETL & training pipeline <br>
 ├── app.py # Streamlit application file <br>
 ├── requirements.txt # Python dependency <br>
 
-## 7. ## 7. Installation
+## 7. Installation
 
+[Download the dataset from Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?resource=download&select=movies_metadata.csv) <br>
 Clone this repository:
 
 ```bash
