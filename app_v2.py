@@ -6,7 +6,11 @@ import os
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+<<<<<<< HEAD
 # KONFIGURASI HALAMAN
+=======
+# --- KONFIGURASI HALAMAN ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
 st.set_page_config(
     page_title="Cinematch",
     page_icon="🎬",
@@ -14,7 +18,11 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+<<<<<<< HEAD
 # FUNGSI CACHE UNTUK MEMUAT MODEL
+=======
+# --- FUNGSI CACHE UNTUK MEMUAT MODEL ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
 # Menggunakan cache Streamlit agar model tidak di-load ulang setiap kali ada interaksi
 @st.cache_resource
 def load_models():
@@ -43,7 +51,11 @@ def load_models():
 # Memuat semua model ke memori
 svd, vectorizer, tfidf_matrix, movies_df, ratings_df, indices_map = load_models()
 
+<<<<<<< HEAD
 #  FUNGSI HELPER 
+=======
+# --- FUNGSI HELPER ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
 
 def get_recommendation_explanation(liked_movie_title, rec_movie_title, movies_df, indices_map):
     """
@@ -134,6 +146,12 @@ def get_content_based_recommendations(liked_movie_titles, n_recommendations, mov
         return pd.DataFrame(columns=['title', 'score_cb'])
 
 def get_collaborative_filtering_recommendations(user_id, n_recommendations, movies_df, ratings_df, svd_model):
+<<<<<<< HEAD
+=======
+    """
+    Menghasilkan rekomendasi Collaborative Filtering (SVD).
+    """
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
     try:
         # Cari film yang BELUM ditonton user
         watched_movie_ids = ratings_df[ratings_df['userId'] == user_id]['movieId'].unique()
@@ -170,7 +188,11 @@ def get_collaborative_filtering_recommendations(user_id, n_recommendations, movi
         return pd.DataFrame(columns=['title', 'score_cf'])
 
 
+<<<<<<< HEAD
 # UI STREAMLIT
+=======
+# --- UI STREAMLIT ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
 
 st.title("🎬 Cinematch: Hybrid Movie Recommender System")
 st.markdown("""
@@ -180,12 +202,20 @@ Aplikasi ini menggabungkan dua metode untuk memberikan rekomendasi film yang per
 2.  **Collaborative Filtering:** Menemukan pengguna lain dengan selera mirip (berdasarkan histori rating) dan merekomendasikan film yang mereka sukai.
 """)
 
+<<<<<<< HEAD
 # Sidebar untuk Input 
+=======
+# --- Sidebar untuk Input ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
 st.sidebar.header("⚙️ Input Pengguna")
 
 # Cek apakah model berhasil di-load
 if movies_df is not None:
+<<<<<<< HEAD
     # Input 1: User ID
+=======
+    # --- Input 1: User ID ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
     user_list = ratings_df['userId'].unique().tolist()
     user_id = st.sidebar.selectbox(
         "Pilih User ID Anda:",
@@ -193,7 +223,11 @@ if movies_df is not None:
         index=0
     )
 
+<<<<<<< HEAD
     #  Input 2: Film Favorit (untuk Content-Based) 
+=======
+    # --- Input 2: Film Favorit (untuk Content-Based) ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
     movie_list = movies_df['title'].sort_values().tolist()
     liked_movies = st.sidebar.multiselect(
         "Pilih 3-5 film favorit Anda (untuk Content-Based):",
@@ -201,7 +235,11 @@ if movies_df is not None:
         max_selections=5
     )
     
+<<<<<<< HEAD
     #  Input 3: Jumlah Rekomendasi 
+=======
+    # --- Input 3: Jumlah Rekomendasi ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
     n_recs = st.sidebar.slider(
         "Jumlah Rekomendasi:",
         min_value=5,
@@ -209,30 +247,49 @@ if movies_df is not None:
         value=10
     )
     
+<<<<<<< HEAD
     #  Tombol Generate 
+=======
+    # --- Tombol Generate ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
     submit_button = st.sidebar.button("Dapatkan Rekomendasi", type="primary")
 
 else:
     st.sidebar.error("Model tidak dapat dimuat. Aplikasi tidak dapat berjalan.")
     submit_button = False
 
+<<<<<<< HEAD
 #  Logika Utama Saat Tombol Ditekan 
+=======
+# --- Logika Utama Saat Tombol Ditekan ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
 if submit_button and movies_df is not None:
     if not liked_movies or len(liked_movies) < 1:
         st.warning("Silakan pilih minimal 1 film favorit untuk menjalankan Content-Based.")
     else:
         with st.spinner(f"Mencari {n_recs} rekomendasi hibrida untuk User {user_id}..."):
             
+<<<<<<< HEAD
             #  1. Content-Based 
             cb_recs_df = get_content_based_recommendations(liked_movies, n_recs, movies_df, tfidf_matrix, indices_map)
             
             #  2. Collaborative Filtering 
+=======
+            # --- 1. Content-Based ---
+            cb_recs_df = get_content_based_recommendations(liked_movies, n_recs, movies_df, tfidf_matrix, indices_map)
+            
+            # --- 2. Collaborative Filtering ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
             cf_recs_df = get_collaborative_filtering_recommendations(user_id, n_recs, movies_df, ratings_df, svd)
             
             if cb_recs_df.empty and cf_recs_df.empty:
                 st.error("Gagal mendapatkan rekomendasi. Coba input yang berbeda.")
             else:
+<<<<<<< HEAD
                 #  3. Hybrid Logic 
+=======
+                # --- 3. Hybrid Logic ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
                 st.header(f"🚀 Rekomendasi Hibrida Teratas untuk Anda")
                 
                 # Normalisasi Skor
@@ -269,7 +326,11 @@ if submit_button and movies_df is not None:
                 # Hapus film yang sudah disukai
                 final_recs_df = hybrid_recs_df[~hybrid_recs_df['title'].isin(liked_movies)].head(n_recs)
 
+<<<<<<< HEAD
                 #  Tampilkan Hasil 
+=======
+                # --- Tampilkan Hasil ---
+>>>>>>> 13023fc14db384e7b7fc757a69ec522a1508ff3f
                 # Bagi layout jadi 5 kolom
                 cols = st.columns(5)
                 # Ambil 5 rekomendasi teratas untuk ditampilkan dengan poster
