@@ -14,10 +14,6 @@ This project combines **Collaborative Filtering** and **Content-Based Filtering*
 5. [Dataset](#5-dataset)  
 6. [Project Structure](#6-project-structure)  
 7. [Installation](#7-installation)  
-8. [How to Run](#8-how-to-run)  
-9. [Evaluation Results](#9-evaluation-results)  
-10. [Limitations and Future Work](#10-limitations-and-future-work)  
-11. [License](#11-license)  
 
 ---
 
