@@ -3,6 +3,7 @@ pandas==2.2.3
 numpy==1.26.4
 scikit-learn==1.6.1
 surprise==0.1
+scikit-surprise==1.1.4
 markdown-it-py==4.0.0
 mdurl==0.1.2
 pygments==2.19.2
