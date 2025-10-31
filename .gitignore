@@ -1,0 +1,11 @@
+# Ignore dataset and large files
+*.csv
+*.zip
+*.parquet
+*.pkl
+*.h5
+*.json
+movies-dataset/
+ml-25m/
+__pycache__/
+.DS_Store
