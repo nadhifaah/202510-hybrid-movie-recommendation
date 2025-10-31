@@ -94,18 +94,21 @@ The specific files used are:
 ---
 
 ## 6. Project Structure
-/CineMatch <br>
-├── data/ <br>
-│ ├── movies_metadata.csv <br>
-│ ├── credits.csv <br>
-│ └── ratings_small.csv <br>
-│ <br>
-├── models/ <br>
-│ └── (This folder will contain 5 .pkl files after the pipeline runs) <br>
-│ <br>
-├── hybrid_recommender.ipynb # Main notebook for ETL & training pipeline <br>
-├── app.py # Streamlit application file <br>
-├── requirements.txt # Python dependency <br>
+
+```bash
+/CineMatch 
+├── data/ 
+│ ├── movies_metadata.csv 
+│ ├── credits.csv 
+│ └── ratings_small.csv 
+│ 
+├── models/ 
+│ └── (This folder will contain 5 .pkl files after the pipeline runs) 
+│ 
+├── hybrid_recommender.ipynb # Main notebook for ETL & training pipeline 
+├── app.py # Streamlit application file 
+├── requirements.txt # Python dependency 
+```
 
 ## 7. Installation
 
