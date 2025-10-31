@@ -111,5 +111,16 @@ The specific files used are:
 ├── app.py # Streamlit application file <br>
 ├── requirements.txt # Python dependency <br>
 
-## 7. 
+## 7. ## 7. Installation
+
+Clone this repository:
+
+```bash
+git clone (https://github.com/nadhifaah/202510-hybrid-movie-recommendation.git)
+cd 202510-hybrid-movie-recommendation
+source venv/bin/activate
+venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
+
 
