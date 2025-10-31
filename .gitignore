@@ -2,7 +2,6 @@
 *.csv
 *.zip
 *.parquet
-*.pkl
 *.h5
 *.json
 movies-dataset/
